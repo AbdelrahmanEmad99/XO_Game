@@ -4,6 +4,7 @@ let squares = [];
 let player1Score = 0;
 let player2Score = 0;
 let gameOver = false;
+let ok = false;
 
 
 function isTie() {
@@ -49,10 +50,13 @@ function win(num1, num2, num3) {
         }
     }, 4000);
 
+
     setTimeout(function () {
         currentPlayer = 'X';
         title.innerHTML = 'X Is Next';
+        ok = false;
     }, 4000);
+
 }
 
 function winner() {
@@ -70,11 +74,12 @@ function winner() {
         const [a, b, c] = combo;
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             win(a, b, c);
-            gameOver = true;
-
+            console.log(squares[a] + ' is win');
+            ok = true;
             return;
         }
     }
+
 
     // // Rows
     // if (squares[1] == squares[2] && squares[2] == squares[3] && squares[1] != '') {
@@ -108,7 +113,11 @@ function winner() {
     }
 }
 
+
 function game(id) {
+    if (ok) {
+        return; // Don't allow moves if the game is over
+    }
     let element = document.getElementById(id);
     if (currentPlayer === 'X' && element.innerHTML == '') {
         element.innerHTML = 'X';
@@ -121,6 +130,7 @@ function game(id) {
     }
     winner();
 }
+
 
 function resetGame() {
     // Clear the content of all squares
