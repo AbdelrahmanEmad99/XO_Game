@@ -37,11 +37,7 @@ function win(num1, num2, num3) {
     setTimeout(function () {
         title.innerHTML += '.';
     }, 1000);
-    // for (let i = 1; i < 10; i++) {
-    //     let element = document.getElementById('item' + i);
-    //     element.innerHTML = '';
-    //     element.style.background = '#f25';
-    // }
+
     setTimeout(function () {
         for (let i = 1; i < 10; i++) {
             let element = document.getElementById('item' + i);
@@ -74,42 +70,16 @@ function winner() {
         const [a, b, c] = combo;
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             win(a, b, c);
-            console.log(squares[a] + ' is win');
             ok = true;
             return;
         }
     }
 
 
-    // // Rows
-    // if (squares[1] == squares[2] && squares[2] == squares[3] && squares[1] != '') {
-    //     win(1, 2, 3);
-    // } else if (squares[4] == squares[5] && squares[5] == squares[6] && squares[4] != '') {
-    //     win(4, 5, 6);
-    // } else if (squares[7] == squares[8] && squares[8] == squares[9] && squares[7] != '') {
-    //     win(7, 8, 9);
-    // }
-
-    // // Columns
-    // else if (squares[1] == squares[4] && squares[4] == squares[7] && squares[7] != '') {
-    //     win(1, 4, 7);
-    // } else if (squares[2] == squares[5] && squares[5] == squares[8] && squares[2] != '') {
-    //     win(2, 5, 8);
-    // } else if (squares[3] == squares[6] && squares[6] == squares[9] && squares[3] != '') {
-    //     win(3, 6, 9);
-    // }
-
-    // // Diagonals
-    // else if (squares[1] == squares[5] && squares[5] == squares[9] && squares[1] != '') {
-    //     win(1, 5, 9);
-    // } else if (squares[3] == squares[5] && squares[5] == squares[7] && squares[7] != '') {
-    //     win(3, 5, 7);
-    // }
-
-
     if (isTie()) {
         gameOver = true; // Update game state to indicate a tie
         title.innerHTML = "It's a Tie!";
+
     }
 }
 
@@ -149,7 +119,5 @@ function resetGame() {
     document.getElementById('score2').textContent = player2Score;
 
 
-    // setTimeout(function () {
-    //     location.reload();
-    // }, 0);
+
 }
