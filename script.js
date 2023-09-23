@@ -80,6 +80,21 @@ function winner() {
         gameOver = true; // Update game state to indicate a tie
         title.innerHTML = "It's a Tie!";
 
+        setTimeout(function () {
+            for (let i = 1; i < 10; i++) {
+                let element = document.getElementById('item' + i);
+                element.innerHTML = '';
+                element.style.background = '#f25';
+            }
+        }, 4000);
+
+
+        setTimeout(function () {
+            currentPlayer = 'X';
+            title.innerHTML = 'X Is Next';
+            ok = false;
+        }, 4000);
+
     }
 }
 
